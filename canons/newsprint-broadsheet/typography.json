@@ -1,0 +1,31 @@
+{
+  "fontCount": 3,
+  "title": {
+    "family": "Oswald",
+    "fallbacks": ["Impact", "Haettenschweiler", "Arial Narrow", "sans-serif"],
+    "googleFont": "Oswald",
+    "weights": [500, 700]
+  },
+  "heading": {
+    "family": "Oswald",
+    "fallbacks": ["Impact", "Haettenschweiler", "Arial Narrow", "sans-serif"],
+    "googleFont": "Oswald",
+    "weights": [500, 700]
+  },
+  "body": {
+    "family": "Libre Baskerville",
+    "fallbacks": ["Georgia", "Times New Roman", "serif"],
+    "googleFont": "Libre Baskerville",
+    "weights": [400, 700]
+  },
+  "utility": {
+    "family": "IBM Plex Sans",
+    "fallbacks": ["Helvetica Neue", "Arial", "sans-serif"],
+    "googleFont": "IBM Plex Sans",
+    "weights": [400, 600]
+  },
+  "baseSizeRem": 1.0,
+  "scaleRatio": 1.33,
+  "bodyLeading": 1.45,
+  "headingLeading": 1.0
+}

@@ -1,0 +1,21 @@
+{
+  "id": "your-canon-id",
+  "name": "Your Canon Name",
+  "author": "Your Name",
+  "homepage": "https://example.com",
+  "license": "MIT",
+  "version": "1.0.0",
+  "tier": "community",
+  "description": "One sentence on the editorial voice — what a reader feels, not what the CSS does.",
+  "tags": ["tag-one", "tag-two"],
+  "dropCaps": {
+    "preferred": "none",
+    "allowed": ["none", "classic-3", "classic-5"]
+  },
+  "artwork": {
+    "density": "light",
+    "style": "the illustration tradition, in prose — this text becomes the art brief",
+    "wrapAllowed": false,
+    "placements": ["full", "inline"]
+  }
+}
