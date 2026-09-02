@@ -1,0 +1,21 @@
+{
+  "id": "newsprint-broadsheet",
+  "name": "Newsprint Broadsheet",
+  "author": "TastePilot",
+  "homepage": "https://tastepilot.org",
+  "license": "MIT",
+  "version": "1.0.0",
+  "tier": "community",
+  "description": "The urgency of a printed paper: condensed headlines, a tight measure, hairline rules, and a single red that means something.",
+  "tags": ["newspaper", "editorial", "condensed", "dense", "journalism"],
+  "dropCaps": {
+    "preferred": "classic-3",
+    "allowed": ["none", "classic-3", "raised"]
+  },
+  "artwork": {
+    "density": "light",
+    "style": "documentary halftone photography and stipple portraits, high contrast, single-color duotone in the accent red, never glossy",
+    "wrapAllowed": true,
+    "placements": ["left", "right", "full"]
+  }
+}

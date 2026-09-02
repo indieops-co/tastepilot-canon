@@ -1,0 +1,31 @@
+{
+  "fontCount": 2,
+  "title": {
+    "family": "Source Serif 4",
+    "fallbacks": ["Georgia", "Times New Roman", "serif"],
+    "googleFont": "Source Serif 4",
+    "weights": [400, 600]
+  },
+  "heading": {
+    "family": "Source Serif 4",
+    "fallbacks": ["Georgia", "Times New Roman", "serif"],
+    "googleFont": "Source Serif 4",
+    "weights": [400, 600]
+  },
+  "body": {
+    "family": "Source Serif 4",
+    "fallbacks": ["Georgia", "Times New Roman", "serif"],
+    "googleFont": "Source Serif 4",
+    "weights": [400, 600]
+  },
+  "utility": {
+    "family": "IBM Plex Sans",
+    "fallbacks": ["Helvetica Neue", "Arial", "sans-serif"],
+    "googleFont": "IBM Plex Sans",
+    "weights": [400, 600]
+  },
+  "baseSizeRem": 1.05,
+  "scaleRatio": 1.25,
+  "bodyLeading": 1.6,
+  "headingLeading": 1.15
+}

@@ -1,0 +1,5 @@
+# The registry is derived from canons/ — CI builds it, nobody commits it.
+registry/
+node_modules/
+.DS_Store
+.tastepilot/

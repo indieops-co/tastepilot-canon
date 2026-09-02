@@ -1,0 +1,85 @@
+name: Validate canons
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # The validator is the tool itself — the same strict schemas and the same
+      # security scan a contributor runs locally. Never a reimplementation.
+      - uses: actions/checkout@v4
+        with:
+          repository: taste-pilot/home
+          path: .tastepilot
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: .tastepilot/tastepilot/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+        working-directory: .tastepilot/tastepilot
+
+      - name: Every canon folder holds exactly the six canon files
+        run: |
+          failed=0
+          for dir in canons/*/ template/; do
+            extra=$(ls -A "$dir" | grep -vE '^(manifest|typography|palette|layout|motion|print)\.json$' || true)
+            if [ -n "$extra" ]; then
+              echo "::error file=$dir::$dir contains files that are not part of a canon: $(echo $extra | tr '\n' ' ')"
+              failed=1
+            fi
+          done
+          exit $failed
+
+      - name: Folder names match manifest ids
+        run: |
+          failed=0
+          for dir in canons/*/; do
+            id=$(basename "$dir")
+            declared=$(node -p "require('./$dir/manifest.json').id")
+            if [ "$id" != "$declared" ]; then
+              echo "::error file=$dir::folder is \"$id\" but manifest.id is \"$declared\""
+              failed=1
+            fi
+          done
+          exit $failed
+
+      - name: Validate — schema and security scan
+        run: |
+          failed=0
+          for dir in canons/*/ template/; do
+            echo "→ $dir"
+            pnpm --dir .tastepilot/tastepilot dev canon validate "$PWD/$dir" || failed=1
+          done
+          exit $failed
+
+      - name: Build the static registry
+        run: node scripts/build-registry.mjs
+
+      # The contract of this repository is that the built registry is a real
+      # registry: a folder of files the client can consume with no service.
+      - name: A static file server is a working registry
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 --directory registry &
+          server=$!
+          sleep 2
+          TASTEPILOT_CANON_URL=http://127.0.0.1:8765 \
+            pnpm --dir .tastepilot/tastepilot dev canons | tee /tmp/canons.txt
+          kill $server
+          for dir in canons/*/; do
+            id=$(basename "$dir")
+            grep -q "^$id .*community" /tmp/canons.txt || {
+              echo "::error::$id is missing from the registry listing"
+              exit 1
+            }
+          done
