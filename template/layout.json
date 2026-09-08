@@ -1,0 +1,10 @@
+{
+  "measureCh": 66,
+  "density": "comfortable",
+  "headingTreatment": "plain",
+  "quoteTreatment": "rule-left",
+  "calloutTreatment": "panel",
+  "statisticTreatment": "oversized",
+  "ornament": "rule",
+  "cornerRadius": "subtle"
+}

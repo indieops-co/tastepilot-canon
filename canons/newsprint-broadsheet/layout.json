@@ -1,0 +1,10 @@
+{
+  "measureCh": 58,
+  "density": "compact",
+  "headingTreatment": "eyebrow",
+  "quoteTreatment": "oversized-mark",
+  "calloutTreatment": "boxed",
+  "statisticTreatment": "panel",
+  "ornament": "rule",
+  "cornerRadius": "none"
+}
