@@ -15,7 +15,7 @@ jobs:
       # security scan a contributor runs locally. Never a reimplementation.
       - uses: actions/checkout@v4
         with:
-          repository: taste-pilot/home
+          repository: indieops-co/tastepilot
           path: .tastepilot
 
       - uses: pnpm/action-setup@v4
