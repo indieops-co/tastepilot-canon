@@ -2,7 +2,7 @@
 
 # Community Canon
 
-**An open library of editorial styles for [TastePilot](https://tastepilot.org).**
+**An open library of editorial styles for [TastePilot](https://indieops.co/skills/tastepilot).**
 
 A Canon is not a theme or a page template. It is a reusable **editorial grammar** — the typographic relationships, paired palettes, spacing rhythm, drop-cap behavior, artwork rules, motion grammar, and print adaptation that make a publication feel like *someone* made it.
 
